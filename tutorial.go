@@ -27,5 +27,5 @@ func main() {
 
 	fmt.Println(sum)
 	fmt.Println(product)
-
+	fmt.Printf("%s %s", word1, word2)
 }
