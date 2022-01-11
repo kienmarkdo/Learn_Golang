@@ -7,34 +7,20 @@ The goal is to learn the syntax quickly to get a head start in CSI2520 - Program
 
 package main
 
-import "fmt"
+import (
+	"fmt" // fmt documentation https://pkg.go.dev/fmt
+)
 
 func main() {
+	// empty array of int with a specified size
+	var a [5]int
+	a[2] = 7
 
-	// explicit declaration
-	var x int = 5
-	var y int = 7
-	var sum int = x + y
+	// array of int with a non-specified size (slices) (size cannot be change after initialization)
+	arrSlice := []int{0, 1, 2}
+	// this will not work arrSlice[3] = 3
+	fmt.Println(arrSlice)
 
-	// implicit declaration
-	var a = 10
-	var b = 20
-	var product = a * b
+	//b := [5]int{5, 4, 3, 2, 1}
 
-	// mathematical declaration
-	word1 := "hello"
-	word2 := "world"
-
-	fmt.Println(sum)
-	fmt.Println(product)
-	fmt.Printf("%s %s \n\n", word1, word2)
-
-	// NOTE: There are no parentheses around the conditional statement arguments
-	if sum > product {
-		fmt.Println("sum is greater than product")
-	} else if sum < product {
-		fmt.Println("sum is less than product")
-	} else {
-		fmt.Println("sum is equal to product")
-	}
 }
