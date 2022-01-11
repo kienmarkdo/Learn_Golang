@@ -21,6 +21,8 @@ func main() {
 	// this will not work arrSlice[3] = 3
 	fmt.Println(arrSlice)
 
-	//b := [5]int{5, 4, 3, 2, 1}
+	b := []int{5, 4, 3, 2, 1}
+	b = append(b, 13) // creates a new array, recopies it back into b
+	fmt.Println(b)
 
 }
