@@ -11,9 +11,21 @@ import "fmt"
 
 func main() {
 
+	// explicit declaration
 	var x int = 5
 	var y int = 7
 	var sum int = x + y
 
+	// implicit declaration
+	var a = 10
+	var b = 20
+	var product = a * b
+
+	// mathematical declaration
+	word1 := "hello"
+	word2 := "world"
+
 	fmt.Println(sum)
+	fmt.Println(product)
+
 }
