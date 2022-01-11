@@ -25,4 +25,9 @@ func main() {
 	b = append(b, 13) // creates a new array, recopies it back into b
 	fmt.Println(b)
 
+	// This code below would not work as it is not a slice
+	// arrFixedLen := [2]string{"word1", "word2"}
+	// arrFixedLen = append(arrFixedLen, "word3")
+	// fmt.Println(arrFixedLen)
+
 }
