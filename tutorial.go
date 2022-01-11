@@ -27,5 +27,14 @@ func main() {
 
 	fmt.Println(sum)
 	fmt.Println(product)
-	fmt.Printf("%s %s", word1, word2)
+	fmt.Printf("%s %s \n\n", word1, word2)
+
+	// NOTE: There are no parentheses around the conditional statement arguments
+	if sum > product {
+		fmt.Println("sum is greater than product")
+	} else if sum < product {
+		fmt.Println("sum is less than product")
+	} else {
+		fmt.Println("sum is equal to product")
+	}
 }
