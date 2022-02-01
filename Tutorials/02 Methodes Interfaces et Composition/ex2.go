@@ -53,6 +53,11 @@ func (t tria) area() float64 { return (t.base * t.height) / 2 }
 // perimeter getters
 func (r rect) perim() float64 { return 2 * (r.height + r.width) }
 func (c circ) perim() float64 { return 2 * c.radius * math.Pi }
+func (t tria) perim() float64 {
+	// assumes isoleces triangle
+	c := math.Sqrt(math.Pow(t.height, 2) + math.Pow(1./2.*t.base, 2))
+	return t.base + 2*c
+}
 
 func main() {
 	shapes := make([]shape, 0)
@@ -60,6 +65,24 @@ func main() {
 	r1 := rect{"rectangle 1", 10, 5}
 	shapes = append(shapes, r1)
 	measure(shapes[0])
+
+	r2 := r1             // copy r1
+	r2.s = "rectangle 2" // this does not change r1
+	shapes = append(shapes, r2)
+
+	t1 := tria{"triangle 1", 10, 5}
+	shapes = append(shapes, t1)
+
+	c1 := circ{"circle 1", 1}
+	shapes = append(shapes, c1)
+
+	// call measure for all shapes in shapes interface
+	for _, s := range shapes {
+		// measure takes argument of interface type shape
+		// so works on rect, circ, tri
+		measure(s)
+	}
+
 }
 
 func measure(s shape) {
