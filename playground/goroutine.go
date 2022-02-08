@@ -2,39 +2,45 @@
 
 package main
 
-import (
-	"fmt"
-	"time"
-)
+import "fmt"
 
 func main() {
+	// Common pattern: Worker pools
+	// queue for work to be done and multiple concurrent workers pulling items off the queue
 
-	c1 := make(chan string)
-	c2 := make(chan string)
+	jobs := make(chan int, 100) // make 100 channels of integers
+	results := make(chan int, 100)
 
-	go func() {
-		for {
-			c1 <- "Every 500ms"
-			time.Sleep(time.Millisecond * 500)
-		}
-	}()
+	go worker(jobs, results) // make worker a concurrent routine then send it the two previously declared channels
 
-	go func() {
-		for {
-			c2 <- "Every 2000ms"
-			time.Sleep(time.Millisecond * 2000)
-		}
-	}()
-
-	for {
-		// with the select keyword, this is much faster as it processes whichever channel finishes first
-		// as such, channel c1 will execute 4 times while channel c2 is still waiting to execute
-		select {
-		case msg1 := <-c1:
-			fmt.Println(msg1)
-		case msg2 := <-c2:
-			fmt.Println(msg2)
-		}
-
+	// fill up the jobs channel with 100 numbers (0 to 99, inclusive)
+	// since it's buffered, it's not gonna block anything
+	for i := 0; i < 100; i++ {
+		jobs <- i
 	}
+
+	close(jobs)
+
+	for i := 0; i < 100; i++ {
+		fmt.Println(<-results) // receive each result in one results channel at a time then display it
+	}
+}
+
+// one channel to send content, one channel to receive content
+// receive from jobs, send on results
+// now if we try to send on jobs, for example, there will be a compile time error
+func worker(jobs <-chan int, results chan<- int) {
+	for n := range jobs {
+		// receive content from jobs, calculate fib(n) using the integer content in the jobs channel
+		//  then put the results of fib(n) into the results channel
+		results <- fib(n)
+	}
+}
+
+func fib(n int) int {
+	if n <= 1 {
+		return n
+	}
+
+	return fib(n-1) + fib(n-2)
 }
