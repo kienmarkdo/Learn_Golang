@@ -12,6 +12,9 @@ func main() {
 	results := make(chan int, 100)
 
 	go worker(jobs, results) // make worker a concurrent routine then send it the two previously declared channels
+	go worker(jobs, results)
+	go worker(jobs, results)
+	go worker(jobs, results) // make more workers
 
 	// fill up the jobs channel with 100 numbers (0 to 99, inclusive)
 	// since it's buffered, it's not gonna block anything
