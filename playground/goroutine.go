@@ -27,8 +27,14 @@ func main() {
 	}()
 
 	for {
-		// this is slow because channel c1 is waiting for c2 to finish before executing, even though it's already done
-		fmt.Println(<-c1)
-		fmt.Println(<-c2)
+		// with the select keyword, this is much faster as it processes whichever channel finishes first
+		// as such, channel c1 will execute 4 times while channel c2 is still waiting to execute
+		select {
+		case msg1 := <-c1:
+			fmt.Println(msg1)
+		case msg2 := <-c2:
+			fmt.Println(msg2)
+		}
+
 	}
 }
