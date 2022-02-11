@@ -1,23 +1,17 @@
-/*
-The following program demonstrates a parallel loop in Go.
-However, this program should wait for the go routines to terminate before ending.
-Remove the Sleep statement and replace it by a proper synchronization.
-
-Le programme ci-dessous démontre l'utilisation d'une boucle parallèle.
+/* Le programme ci-dessous démontre l'utilisation d'une boucle parallèle.
 Toutefois ce programme devrait attendre la fin de toutes les go routines avant de se terminer.
 Retirer l'énoncé Sleep et ajouter un mécanisme de synchronisation.
-*/
+Votre solution doit fonctionner même si la dimension du tableau est changée. */
 
 package main
 
 import (
 	"fmt"
-	"sync"
+	"time"
 )
 
 func main() {
 
-	var wg sync.WaitGroup
 	x := []int{3, 1, 4, 1, 5, 9, 2, 6}
 
 	var y [8]int
@@ -26,24 +20,23 @@ func main() {
 
 	for i, v := range x {
 
-		wg.Add(1)
-
 		go func(i int, v int) {
 
 			y[i] = calcul(v)
-			wg.Done()
 
 		}(i, v) // appel a la goroutine
-
-		wg.Wait()
 
 	}
 
 	// ajouter synchronisation
 
+	time.Sleep(1 * time.Second)
+
 	fmt.Println(y)
 
 }
+
+// vous pouvez ajouter un channel a la liste des parametres
 
 func calcul(v int) int {
 
