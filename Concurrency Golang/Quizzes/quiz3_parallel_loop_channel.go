@@ -1,8 +1,3 @@
-/* Le programme ci-dessous démontre l'utilisation d'une boucle parallèle.
-Toutefois ce programme devrait attendre la fin de toutes les go routines avant de se terminer.
-Retirer l'énoncé Sleep et ajouter un mécanisme de synchronisation.
-Votre solution doit fonctionner même si la dimension du tableau est changée. */
-
 package main
 
 import (
