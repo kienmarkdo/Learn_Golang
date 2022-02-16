@@ -12,6 +12,8 @@ allies(X,Y) :- combat(X,Z), combat(Y,Z).
 X = paul, Z = pierre
 paul, jean
 jean, paul
+
+Wrong. Did not show results that applied to itself.
 */
 
 /* Résultats réelles
