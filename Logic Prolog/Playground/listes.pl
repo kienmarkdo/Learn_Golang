@@ -17,6 +17,8 @@ reponse(stop):-write('merci'),nl.
 reponse(Province):-capitale(Province,Ville),write('la capitale de '),
                    write(Province),write(' est '),write(Ville),nl,nl,demander.
 
+% prédicat qui dit "je ne connait pas cette province"
+reponse(P) :- \+capitale(P,_), write("je ne connais pas "), write(P), nl, demander.
 
 % ?- start.
 % Les Capitales du Canada
@@ -25,6 +27,9 @@ reponse(Province):-capitale(Province,Ville),write('la capitale de '),
 
 % Province? cb.
 % la capitale de cb est victoria
+
+% Province? qwerty.
+% je ne connais pas qwerty
 
 % Province? stop.
 % merci
