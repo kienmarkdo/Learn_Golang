@@ -20,8 +20,6 @@
 % oddEven([T|Q], L) :- oddEven(Q, LL), mod(T, 2) =:= 1, L is [odd|LL].
 
 
-
-
 % insert(A, L, [A|L]). % insert element A in front of L
 
 % oddEven([T|[]], [even]) :- mod(T, 2) =:= 0, !.
@@ -56,7 +54,7 @@ notre_reverse(L,R) :- renverser(L,[],R).
 
 
 
-% working version START
+% Amy's version START
 % oddEven(IN, OUT) :- find(IN, [], REV), reverse(REV,OUT).
 
 % even(X) :- 0 is mod(X, 2).
@@ -68,6 +66,6 @@ notre_reverse(L,R) :- renverser(L,[],R).
 % find([],X,X). %base case
 % find([F|L], LIST, OUT) :- process(F,LIST,L2), find(L,L2,OUT).
 
-%Helper function
+% Helper function
 % insert(A,L,[A|L]).
-% working version END
+% Amy's version END

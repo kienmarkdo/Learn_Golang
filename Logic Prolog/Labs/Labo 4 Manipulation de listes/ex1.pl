@@ -21,4 +21,3 @@ getMin([T|Q], T) :- getMin(Q, MinN), MinN > T.
 
 maxmin([T|Q], Max, _) :- getMax([T|Q], Max).
 maxmin([T|Q], _, Min) :- getMin([T|Q], Min).
-% maxmin([X|[]], X, X).

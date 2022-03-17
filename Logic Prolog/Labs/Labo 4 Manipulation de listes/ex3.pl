@@ -22,10 +22,10 @@ reverseDrop([_|T], A, remove, R) :-
 
 
 % Helper functions
-% Reverse a list function
+% Function that reverses items in a list
 renverser([],L,L) :- !.
 renverser([H|T],L,R) :- renverser(T,[H|L],R).
 
 notre_reverse(L,R) :- renverser(L,[],R).
-% Insert item into list function
+% Function that inserts item into list
 insert(A, L, [A|L]).
