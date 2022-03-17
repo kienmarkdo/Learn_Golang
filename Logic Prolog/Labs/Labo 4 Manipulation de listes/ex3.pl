@@ -10,3 +10,22 @@
 % REMARQUE : D'ABORD, ENLÈVE LES INDICES PAIR, PUIS RENVERSER LA LISTE.
 
 % Réponse
+
+
+reverseDrop(L, R) :- reverseDrop(L, [], keep, R), !. % no need to reverse because we are inserting to the front anyway
+reverseDrop([], A, _, A) :- !.
+reverseDrop([H|T], A, keep, R) :-
+            insert(H, A, AA),
+            reverseDrop(T, AA, remove, R).
+reverseDrop([_|T], A, remove, R) :-
+            reverseDrop(T, A, keep, R).
+
+
+% Helper functions
+% Reverse a list function
+renverser([],L,L) :- !.
+renverser([H|T],L,R) :- renverser(T,[H|L],R).
+
+notre_reverse(L,R) :- renverser(L,[],R).
+% Insert item into list function
+insert(A, L, [A|L]).
