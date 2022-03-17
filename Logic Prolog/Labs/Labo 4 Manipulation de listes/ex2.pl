@@ -34,7 +34,7 @@
 
 
 % Working version submit START
-oddEven(L, R) :- oddEven(L, [], RR), notre_reverse(RR, R). % [] is the final list, X is the odd/even indicator
+oddEven(L, R) :- oddEven(L, [], RR), notre_reverse(RR, R), !. % [] is the final list, X is the odd/even indicator
 oddEven([], AA, AA). % end case for when the input list L is empty
 oddEven([H|T], A, R) :-
             mod(H, 2) =:= 1,
