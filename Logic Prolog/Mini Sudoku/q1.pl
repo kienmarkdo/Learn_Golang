@@ -10,3 +10,40 @@
 % yes
 % ?- different([1,3,6,4,1,8,0]).
 % no
+
+different([]).
+different([_|[]]) :- !.
+different([T|Q]) :- not(notre_member(T, Q)), different(Q).
+
+% notre_member vérifie si l'élément X est dans la liste [_|L] ou non.
+notre_member(X,[X|_]) :- !.
+notre_member(X,[_|L]) :- notre_member(X,L).
+
+
+% Exemples d'exécutions
+% ?- different([1,3,6,4,1,8,0]).
+% false.
+
+% ?- different([1,3,6,4,8,0]).
+% true.
+
+% ?- different([1,3,6,4,8,0,1]).
+% false.
+
+% ?- different([1,3,6,4,8,0,3]).
+% false.
+
+% ?- different([1,3,5,4,8,0]).
+% true.
+
+% ?- different([1,3,5,5,8,0]).
+% false.
+
+% ?- different([]).
+% true.
+
+% ?- different([0]).
+% true.
+
+% ?- different([0,0]).
+% false.
