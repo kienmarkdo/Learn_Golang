@@ -1,0 +1,6 @@
+pomme.
+tomate.
+orange.
+celeri.
+poire.
+salade.
