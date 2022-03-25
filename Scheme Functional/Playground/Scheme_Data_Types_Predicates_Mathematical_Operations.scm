@@ -130,3 +130,8 @@ z                    ; #<procedure:z> . We will be defining procedures with lamb
 (equal? '(1 2 3) '(1 2 3))
 (equal? 8 (+ 2 3 3))
 (equal? num (+ 2 3 3))
+
+; RECAP OF EQUALITY CHECKING IN SCHEME
+; = checks that two numbers are equal (numeric type comaparison)
+; eq? checks that two names refer to the same object (a bit like comparing objects by reference)
+; equal? checks that the two names refer to equivalent objects (a bit like comparing by value)
