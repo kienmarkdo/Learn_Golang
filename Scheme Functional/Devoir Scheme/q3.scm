@@ -11,6 +11,7 @@ Question 3
 (define (make-string-list n)
   (cond
     ((<= n 0) '("Finished"))
+    ((= n 1) (append '("1 second") (make-string-list 0)))
     (else (append (list (string-append (number->string n) " seconds")) (make-string-list (- n 1))))
   )
 )
