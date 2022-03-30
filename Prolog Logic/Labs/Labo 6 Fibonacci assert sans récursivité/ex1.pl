@@ -1,4 +1,7 @@
 /*
+CSI2520: Paradigmes de programmation
+Laboratoire 9: Prolog
+
 Exercice 1:
 
 Implémentez de manière efficace un prédicat Prolog fibo(N,F) pour calculer les nombres de Fibonacci,
