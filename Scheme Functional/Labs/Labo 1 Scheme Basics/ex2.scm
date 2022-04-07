@@ -23,6 +23,6 @@ ceci:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 '(1 2 3 4 5 6 7 8 9 10)
-; je ne comprends pas la question, "Créer une liste qui contient des nombres flottant et à virgule fixe"
+'(1.0 2.0 3.0 4.0) ; REMARQUE : Je ne comprends pas vraiment la question, "Créer une liste qui contient des nombres flottant et à virgule fixe"
 (list + - * /)
 '(2 * (log 2 2) * (expt 3 3))
